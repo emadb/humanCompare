@@ -7,6 +7,15 @@
  *
  * @author Nicholas Peretti
  */
+var charMap = {
+	"è":"e",
+	"é":"e",
+	"ì":"i",
+	"ò":"o",
+	"à":"a",
+	"ù":"u",
+}
+ 
 function humanCompare(str1, str2){
 	if (typeof(str1) == "string" && typeof(str2) == "string"){
 		str1 = str1.toLowerCase();
@@ -17,36 +26,7 @@ function humanCompare(str1, str2){
 			var normalize = function(c){
 				var charcode = s[i].charCodeAt(0);
 				if (charcode < 97 || charcode > 122){
-					switch (c){
-						case "è":{
-							c = "e";
-							break;
-						}
-						case "é":{
-							c = "e";
-							break;
-						}
-						case "ì":{
-							c = "i";
-							break;
-						}
-						case "ò":{
-							c = "o";
-							break;
-						}
-						case "à":{
-							c = "a";
-							break;
-						}
-						case "ù":{
-							c = "u";
-							break;
-						}
-						default:{
-							c = "";
-							break;
-						}
-					}
+					c = charMap[c]
 				}
 				return c;
 			}
