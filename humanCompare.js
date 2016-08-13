@@ -50,13 +50,11 @@ function humanCompare(str1, str2){
 				}
 				return c;
 			}
-			var result = "";			
-			if (typeof(s) == "string"){
-				for (var i in s){					
-					result += normalize(s[i]);
-				}
-			}
-			return result;
+			return Array.from(s).reduce(function(acc, c) {
+				return acc + normalize(c)	
+			}, "")
+			
+			return "";
 		}
 		return (makeEasy(str1).trim() == makeEasy(str2).trim());
 	} else {
